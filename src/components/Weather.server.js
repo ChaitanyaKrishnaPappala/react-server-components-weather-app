@@ -5,13 +5,9 @@ import PropTypes from 'prop-types'
 import {fetch} from 'react-fetch'
 
 const Weather = ({value, coords: {latitude, longitude}}) => {
-  const location = fetch(
-    `http://localhost:3001/latng?type=address&value=${value}`
-  )
+  const location = fetch(`/latng?type=address&value=${value}`)
 
-  const weather = fetch(
-    `http://localhost:3001/weather?lat=${latitude}&lng=${longitude}`
-  )
+  const weather = fetch(`/weather?lat=${latitude}&lng=${longitude}`)
 
   const getError = () => {
     if (location.status !== 200) {
